@@ -23,20 +23,27 @@ public class Graph {
         System.out.print("quantos vertices? ");
         int vertexCount = Integer.parseInt(scanner.nextLine().trim());
 
-        System.out.println("Digite indices de 0 até " + (vertexCount - 1));
+        System.out.println("Digite um nome para cada vertice: ");
         for (int i = 0; i < vertexCount; i++) {
             System.out.print("  vertice " + i + ": ");
             graph.addVertex(scanner.nextLine().trim());
         }
 
+        System.out.println("\nVertices cadastrados:");
+        for (int i = 0; i < graph.vertices.size(); i++) {
+            System.out.println("  [" + i + "] " + graph.vertices.get(i));
+        }
+
         System.out.print("quantas arestas? ");
         int edgeCount = Integer.parseInt(scanner.nextLine().trim());
 
-        System.out.println("Digite as arestas pelo indice dos vertices:");
+        System.out.println("\nInforme as arestas usando os indices acima.");
+        System.out.println("Exemplo: 0 1 para ligar o vertice 0 com o 1");
         for (int i = 0; i < edgeCount; i++) {
-            System.out.print("  aresta " + i + " - indice A: ");
+            System.out.println("\nAresta " + (i + 1) + " de " + edgeCount + ":");
+            System.out.print("  de (indice): ");
             int a = Integer.parseInt(scanner.nextLine().trim());
-            System.out.print("  aresta " + i + " - indice B: ");
+            System.out.print("  para (indice): ");
             int b = Integer.parseInt(scanner.nextLine().trim());
             graph.addEdge(a, b);
         }
